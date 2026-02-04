@@ -25,7 +25,12 @@
 			"@hooks/*": ["src/hooks/*"],
 			"@constants/*": ["src/constants/*"],
 			"@lib/*": ["src/lib/*"],
-			"@types/*": ["src/types/*"]
+			"@types/*": ["src/types/*"],
+			"@icon": ["src/assets/icon"],
+			"@icon/*": ["src/assets/icon/*"],
+			"@components/*": ["src/components/*"],
+			"@features/*": ["src/features/*"],
+			"@ui/*": ["src/components/ui/*"]
 		}
 	},
 	"include": ["src"]

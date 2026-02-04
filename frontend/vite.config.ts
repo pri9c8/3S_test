@@ -13,6 +13,10 @@ export default defineConfig({
 			'@constants': path.resolve(__dirname, './src/constants'),
 			'@lib': path.resolve(__dirname, './src/lib'),
 			'@types': path.resolve(__dirname, './src/types'),
+			'@icon': path.resolve(__dirname, './src/assets/icon'),
+			'@components': path.resolve(__dirname, './src/components'),
+			'@features': path.resolve(__dirname, './src/features'),
+			'@ui': path.resolve(__dirname, './src/components/ui'),
 		},
 	},
 })

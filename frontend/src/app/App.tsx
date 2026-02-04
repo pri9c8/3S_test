@@ -1,8 +1,8 @@
-import { ReportTable } from '@/components/reportTable'
+import { ReportTable } from '@/features'
 import { useFetch } from '@/hooks'
 import type { ApiResponse } from '@/types'
 
-const API_3S = 'https://3snet.co/js_test/api.json'
+const API_3S = import.meta.env.VITE_API_URL
 
 function App() {
 	const { data, isLoading, errorMsg } = useFetch<ApiResponse>(API_3S)
