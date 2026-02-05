@@ -21,14 +21,15 @@ export const ReportTable = ({ reportData }: ReportTableProps) => {
 		{ value: '2025', label: '2025' },
 		{ value: '2026', label: '2026' },
 	]
+
 	const visibleMonths = useMemo(
 		() => getCyclicSlice(MONTHS_EN, startMonthIndex, MONTHS_TO_DISPLAY),
-		[startMonthIndex, MONTHS_TO_DISPLAY],
+		[startMonthIndex],
 	)
 
 	const filteredTotal = useMemo(
 		() => getCyclicSlice(reportData.total, startMonthIndex, MONTHS_TO_DISPLAY),
-		[reportData.total, startMonthIndex, MONTHS_TO_DISPLAY],
+		[reportData.total, startMonthIndex],
 	)
 
 	const filteredManagers = useMemo(
@@ -41,7 +42,7 @@ export const ReportTable = ({ reportData }: ReportTableProps) => {
 					MONTHS_TO_DISPLAY,
 				),
 			})),
-		[reportData.table, startMonthIndex, MONTHS_TO_DISPLAY],
+		[reportData.table, startMonthIndex],
 	)
 
 	const handlePrev = () =>
@@ -51,9 +52,9 @@ export const ReportTable = ({ reportData }: ReportTableProps) => {
 		setStartMonthIndex(prev => (prev === MONTHS_IN_YEAR - 1 ? 0 : prev + 1))
 
 	return (
-		<>
-			<div className='flex justify-between'>
-				<div className='flex justify-center items-center'>
+		<div className='pb-8'>
+			<div className='flex justify-between pt-4'>
+				<div className='flex items-center justify-center'>
 					<SelectYear
 						options={yearOptions}
 						value={selectedYear}
@@ -61,6 +62,7 @@ export const ReportTable = ({ reportData }: ReportTableProps) => {
 						placeholder='year'
 					/>
 				</div>
+
 				<div className='flex justify-end'>
 					<ButtonPeriodNav
 						onPrev={handlePrev}
@@ -71,12 +73,13 @@ export const ReportTable = ({ reportData }: ReportTableProps) => {
 					<AddButton onClick={() => {}} icon={<Plus />} />
 				</div>
 			</div>
-			<div className='overflow-x-auto rounded-lg border border-gray-200 mx-auto'>
+
+			<div className='mx-auto mt-3 max-h-[calc(100vh-120px)] overflow-y-auto rounded-lg border border-gray-200'>
 				<table className='min-w-full divide-y divide-gray-200'>
 					<TableHeader months={visibleMonths} />
 					<TableBody total={filteredTotal} managers={filteredManagers} />
 				</table>
 			</div>
-		</>
+		</div>
 	)
 }
