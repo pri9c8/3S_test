@@ -54,7 +54,7 @@ export const ReportTable = ({ reportData }: ReportTableProps) => {
 	return (
 		<div className='pb-8'>
 			<div className='flex justify-between pt-4'>
-				<div className='flex items-center justify-center'>
+				<div className='flex items-center justify-center z-50'>
 					<SelectYear
 						options={yearOptions}
 						value={selectedYear}
